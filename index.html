@@ -343,39 +343,7 @@ footer{padding:70px 0 40px;font-size:13px;color:var(--ink-2)}
   .toast { width: max-content; max-width: calc(100% - 2rem); white-space: normal; }
 }
 @media (max-width: 760px) {
-  .hero .collage {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-areas: "parka jacket" "pprice jprice";
-    height: auto;
-    gap: .65rem .75rem;
-    align-items: start;
-  }
-  .collage .photo, .collage .tag {
-    position: static;
-    width: 100%;
-    height: auto;
-    transform: none;
-    animation: none;
-  }
-  .collage .photo { aspect-ratio: 3 / 4; border: 0; }
-  .collage .photo img { object-fit: contain; }
-  .collage .ph-a { grid-area: parka; }
-  .collage .ph-b { grid-area: jacket; }
-  .collage .t1 { grid-area: pprice; }
-  .collage .t2 { grid-area: jprice; }
-  .collage .tag {
-    padding: .25rem .1rem;
-    text-align: left;
-    white-space: normal;
-    overflow-wrap: anywhere;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-  }
-  .collage .tag small { color: var(--ink-2); font-size: .875rem; }
-  .collage .tag b { margin-top: .15rem; }
-  .collage .sticker, .fab { display: none; }
+  .collage .tag.t1 { left: 0; top: 32%; }
 }
 </style>
 </head>
@@ -770,7 +738,7 @@ $('#mAdd').onclick=()=>{
   save(); flyToCart(); toast(`已加入购物袋：${cur.zh} · ${cur.colors[sel.color][0]} / ${cur.sizes[sel.size]}`);
 };
 function flyToCart(){
-  const from=$('#mImg').getBoundingClientRect(), to=(document.querySelector('.fab').offsetWidth ? document.querySelector('.fab') : document.querySelector('header [data-open-cart]')).getBoundingClientRect();
+  const from=$('#mImg').getBoundingClientRect(), to=document.querySelector('.fab').getBoundingClientRect();
   const f=document.createElement('div');f.className='fly';f.innerHTML=`<img src="${$('#mImg').src}" alt="">`;
   f.style.left=from.left+from.width/2-28+'px';f.style.top=from.top+from.height/2-37+'px';document.body.appendChild(f);
   requestAnimationFrame(()=>requestAnimationFrame(()=>{f.style.left=to.left+2+'px';f.style.top=to.top-6+'px';f.style.transform='scale(.3) rotate(20deg)';f.style.opacity='.3'}));
