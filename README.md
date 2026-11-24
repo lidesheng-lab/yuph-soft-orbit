@@ -1,1 +1,3 @@
-# yuph-soft-orbit
+# YUPH · Soft Orbit 冬日轨迹
+
+YUPH 冬季造型册与模拟购物车。微信支付和支付宝均为演示流程，实际扣款为零。
